@@ -1,6 +1,7 @@
 import TwitterIcon from '@mui/icons-material/Twitter';
-import { Button, Grid, Stack, TextField } from "@mui/material";
+import { Grid, Stack } from "@mui/material";
 import React, { FC, ReactElement, useState } from "react";
+import LoginForm from './components/LoginForm';
 import { useLoginStyle } from "./style";
 
 const LoginPage: FC = (): ReactElement => {
@@ -16,6 +17,10 @@ const LoginPage: FC = (): ReactElement => {
       setMessage("Sai rồi kìa pa")
     }
     setErr(!err)
+  }
+
+  const handleLogin = (): void => {
+    
   }
 
 
@@ -34,7 +39,7 @@ const LoginPage: FC = (): ReactElement => {
           <Stack 
             spacing={3}
             justifyContent="center"
-            alignItems="center"
+            alignItems="center" 
             className={classes.stackHeight}
           >
             <TwitterIcon
@@ -44,34 +49,7 @@ const LoginPage: FC = (): ReactElement => {
             <h1
               className={classes.twitterWelcome}
             >Sign in to Twitter</h1>
-            
-            <TextField 
-              label="Email"
-              variant="outlined"
-              type="email"
-              helperText = {message}
-              style={{width: "75%"}}
-              color="primary"
-
-            ></TextField>
-            <TextField 
-              label="Password"
-              type="password"
-              variant="outlined"
-              helperText = {message}
-              style={{width: "75%"}}
-              color="primary"
-            ></TextField>
-
-            <Button 
-              variant="contained" 
-              color='primary'
-              onClick={handleClick}
-              className={classes.buttonLogin}
-              size="large"
-              >
-              Log in
-            </Button>
+            <LoginForm />
             <span>Don't have an account. <span className={classes.signupText}>Sign up</span> </span>
           </Stack>
         </Grid>
@@ -80,8 +58,13 @@ const LoginPage: FC = (): ReactElement => {
 
     </React.Fragment>
   )
+}
 
-} 
+
+
+
+
+
 export default LoginPage
 
 
