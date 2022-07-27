@@ -1,6 +1,10 @@
 import { Button, TextField } from "@mui/material";
-import { withFormik } from 'formik';
-import { FC, ReactElement, useState } from "react";
+import { Form, FormikProps, withFormik } from 'formik';
+import { useState } from "react";
+import * as yup from "yup";
+import { validateSchema } from "./validateSchema";
+
+
 
 interface FormValues {
   email: string,
@@ -8,16 +12,12 @@ interface FormValues {
 }
 
 interface FormProps {
-  email?: string,
-  password?: string
+  initialEmail?: string,
 }
 
-
-
-const Form: FC = (props: any): ReactElement => {
+const InnerForm = (props: FormikProps<FormValues>) => {
 
   const {
-    classes,
     values,
     touched,
     errors,
@@ -28,55 +28,74 @@ const Form: FC = (props: any): ReactElement => {
     handleReset
   } = props;
 
+  console.log(props)
 
   const [message, setMessage] = useState<string>("")
   // const classes = useLoginStyle()
   return (
-    <form>
+    <Form>
       <TextField 
         label="Email"
         variant="outlined"
         type="email"
-        helperText = {message}
         style={{width: "75%"}}
         color="primary"
-        id="email"
+        onChange={handleChange}
+        onBlur={handleBlur}
+        error={touched.email && Boolean(errors.email)}
+        helperText={touched.email ? errors.email : ""}
+        name="email"
+        value={values.email}
       ></TextField>
       <TextField 
         label="Password"
         type="password"
         variant="outlined"
-        helperText = {message}
         style={{width: "75%"}}
         color="primary"
-        id="password"
+        onChange={handleChange}
+        onBlur={handleBlur}
+        error={touched.password && Boolean(errors.password)}
+        helperText={touched.password ? errors.password : ""}
+        name="password"
+        value={values.password}
       ></TextField>
 
       <Button 
         variant="contained" 
         color='primary'
         size="large"
+        type="submit"
       >
         Log in
       </Button>
-    </form>
+    </Form>
   )
 }
 
+
+
+
+
 const LoginForm = withFormik<FormProps,FormValues>({
   mapPropsToValues: ({
-    email,
-    password
+    initialEmail
   }) => {
     return {
-      email: email || "",
-      password: password || ""
+      email: initialEmail || "",
+      password: ""
     }
   },
-  handleSubmit: () => {
-    
+  validationSchema: yup.object().shape(validateSchema),
+  handleSubmit: (values, { setSubmitting }) => {
+    setTimeout(() => {
+      // submit to the server
+      console.log(values)
+      alert(JSON.stringify(values, null, 2));
+      setSubmitting(false);
+    }, 1000)
   }
-})(Form)
+})(InnerForm)
 
 
 export default LoginForm
