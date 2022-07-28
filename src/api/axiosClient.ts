@@ -15,7 +15,6 @@ const axiosClient : AxiosInstance = axios.create({
   paramsSerializer: (param) => queryString.stringify(param)
 })
 
-
 axiosClient.interceptors.request.use(async (config) => {
   const token : string = getToken()
   config.headers!.Authorization = `Bearer ${token}`
