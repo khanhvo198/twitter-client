@@ -114,6 +114,10 @@ const LoginForm = withFormik<FormProps,FormValues>({
   validationSchema: yup.object().shape(validateSchema),
   handleSubmit: (values, { setSubmitting }) => {
     setTimeout(() => {
+      // dispatch(signIn({
+      //   email: values.email,
+      //   password: values.password
+      // }))
       console.log(values)
       alert(JSON.stringify(values, null, 2));
       setSubmitting(false);
