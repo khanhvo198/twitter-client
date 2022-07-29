@@ -4,7 +4,7 @@ import queryString from "query-string";
 const baseURL : string = "http:localhost:8080/api/v1";
 
 function getToken() : string {
-  return "Token DMM"
+  return ""
 }
 
 const axiosClient : AxiosInstance = axios.create({
