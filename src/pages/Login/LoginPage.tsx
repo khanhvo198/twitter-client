@@ -1,11 +1,11 @@
 import React, { FC, ReactElement } from "react";
-import LoginForm from "./components/LoginForm";
+import InnerForm from "./components/LoginForm";
 
 const LoginPage: FC = (): ReactElement => {
 
   return(
     <React.Fragment>
-        <LoginForm />
+        <InnerForm />
     </React.Fragment>
   )
 }

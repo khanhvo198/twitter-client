@@ -1,31 +1,37 @@
-import axios, { AxiosInstance } from "axios";
-import queryString from "query-string";
+import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 
-const baseURL : string = "http:localhost:8080/api/v1";
 
-function getToken() : string {
-  return ""
-}
 
 const axiosClient : AxiosInstance = axios.create({
-  baseURL: baseURL,
+  baseURL: "http://localhost:8080/api/v1",
   headers: {
-    "content-type": 'application/json'
-  },
-  paramsSerializer: (param) => queryString.stringify(param)
-})
-
-axiosClient.interceptors.request.use(async (config) => {
-  const token : string = getToken()
-  config.headers!.Authorization = `Bearer ${token}`
-})
-axiosClient.interceptors.response.use((res) => {
-  if(res && res.data) {
-    return res.data
+    "Content-Type": 'application/json'
   }
-  return res
-}, (err) => {
-  throw err
 })
 
-export default axiosClient
+axiosClient.interceptors.request.use(
+  function (config: AxiosRequestConfig) {
+    // Do something before request is sent
+    return config;
+  },
+  function (error) {
+    // Do something with request error
+    return Promise.reject(error);
+  }
+);
+
+// Add a response interceptor
+axiosClient.interceptors.response.use(
+  function (response: AxiosResponse) {
+    // Any status code that lie within the range of 2xx cause this function to trigger
+    // Do something with response data
+    return response.data;
+  },
+  function (error) {
+    // Any status codes that falls outside the range of 2xx cause this function to trigger
+    // Do something with response error
+    return Promise.reject(error);
+  }
+);
+
+export default axiosClient;

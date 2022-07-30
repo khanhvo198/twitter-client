@@ -23,8 +23,15 @@ export const AuthSlice = createSlice({
 export const signIn = createAsyncThunk(
   'auth/signIn',
   async (payload: IUser ) => {
-    const response = await axiosClient.post('auth/login')
-    console.log(response)
+    console.log("Hello")
+    console.log(payload)
+    try {
+      const response = await axiosClient.post('/auth/login', payload)
+      console.log(response)  
+    } catch (error) {
+      console.log(error)
+    }
+    
   }
 
 )
