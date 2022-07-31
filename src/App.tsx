@@ -1,11 +1,27 @@
+import { Route, Switch } from 'react-router-dom';
 import './App.css';
 import LoginPage from './pages/Login/LoginPage';
 
+const Home = () => {
+  return (
+    <div>
+      Hello from Home
+    </div>
+  )
+}
+
 function App() {
   return (
-    <div className="App">
-      <LoginPage />
-    </div>
+    <>
+    <Switch>
+      <Route path='/login' >
+        <LoginPage />
+      </Route>
+      <Route path='/home'>
+        <Home />
+      </Route>
+    </Switch>
+    </>
   );
 }
 
