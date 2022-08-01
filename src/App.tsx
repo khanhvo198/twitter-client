@@ -1,6 +1,6 @@
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
-import LoginPage from './pages/Login/LoginPage';
+import LoginPage from './features/auth/pages/Login/LoginPage';
 
 const Home = () => {
   return (
@@ -13,14 +13,14 @@ const Home = () => {
 function App() {
   return (
     <>
-    <Switch>
-      <Route path='/login' >
-        <LoginPage />
-      </Route>
-      <Route path='/home'>
-        <Home />
-      </Route>
-    </Switch>
+      <Switch>
+        <Route path='/login' >
+          <LoginPage />
+        </Route>
+        <Route path='/home'>
+          <Home />
+        </Route>
+      </Switch>
     </>
   );
 }
