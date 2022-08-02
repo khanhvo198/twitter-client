@@ -4,7 +4,7 @@ import { Form, Formik } from 'formik';
 
 import * as yup from "yup";
 import { useAppDispatch } from '../../../../../app/hooks';
-import { IUser, signIn } from '../../../authSlice';
+import { LoginPayload, signIn } from '../../../authSlice';
 import { useLoginStyle } from "../style";
 import { validateSchema } from './validateSchema';
 
@@ -18,7 +18,7 @@ interface FormProps {
   initialEmail?: string,
 }
 
-const InnerForm = () => {
+const LoginForm = () => {
 
   const classes = useLoginStyle()
   const dispatch = useAppDispatch()
@@ -28,7 +28,7 @@ const InnerForm = () => {
   const handleSubmit: any = ( values: any, { setSubmitting }: any ) => {
     setTimeout(() => {
       console.log(values)
-      const user: IUser = {
+      const user: LoginPayload = {
         email: values.email,
         password: values.password
       }
@@ -75,7 +75,7 @@ const InnerForm = () => {
                   } = formikProps;
 
                   return (
-                    <Form>
+                    <Form style={{height: "100%"}}>
                     <Stack 
                     spacing={3}
                     justifyContent="center"
@@ -161,4 +161,4 @@ const InnerForm = () => {
 // })(InnerForm)
 
 
-export default InnerForm
+export default LoginForm
