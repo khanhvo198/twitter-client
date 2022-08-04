@@ -1,11 +1,10 @@
+import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import { PrivateRoute } from './components/PrivateRoute/PrivateRoute';
 import LoginPage from './features/auth/pages/Login/LoginPage';
 import { RegisterPage } from './features/auth/pages/Registration/RegisterPage';
-
-const Home = () => {
-  return <div>Hello from Home</div>;
-};
+import { Home } from './features/Home/Home';
 
 const LoginFail = () => {
   return <>Hello from login fail</>;
@@ -13,14 +12,16 @@ const LoginFail = () => {
 
 function App() {
   return (
-    <>
+    <React.Fragment>
       <Routes>
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/home" element={<Home />} />
         <Route path="/fail" element={<LoginFail />} />
         <Route path="/register" element={<RegisterPage />} />
+        <Route element={<PrivateRoute />}>
+          <Route path="/home" element={<Home />} />
+        </Route>
       </Routes>
-    </>
+    </React.Fragment>
   );
 }
 
