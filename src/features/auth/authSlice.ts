@@ -29,7 +29,14 @@ export const authSlice = createSlice({
     setUserData(state: any, action: PayloadAction<User>) {
       state.user = action.payload;
     },
-    signOut(state: any) { },
+    signOut(state: any) { 
+      state = {
+        ...state,
+        status: '',
+        user: undefined
+      }
+      localStorage.removeItem('token')
+    },
   },
 });
 

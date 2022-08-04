@@ -1,7 +1,7 @@
 import TwitterIcon from '@mui/icons-material/Twitter';
 import { Button, Grid, Stack, TextField } from '@mui/material';
 import { Form, Formik } from 'formik';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import * as yup from 'yup';
 import { useAppDispatch } from '../../../../../app/hooks';
@@ -14,7 +14,8 @@ const LoginForm = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const handleSubmit = (values: any, { setSubmitting }: any) => {
+  const handleSubmit = (values: any, { setSubmitting }: any ) => {
+    console.log(values)
     const user: LoginPayload = {
       email: values.email,
       password: values.password,
@@ -108,8 +109,8 @@ const LoginForm = () => {
                     Log in
                   </Button>
                   <span>
-                    Don't have an account.{' '}
-                    <span className={classes.signupText}>Sign up</span>{' '}
+                    Don't have an account ?.{' '}
+                    <Link to="/register" className={classes.registerText}>Register</Link>
                   </span>
                 </Stack>
               </Form>

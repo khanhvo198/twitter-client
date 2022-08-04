@@ -22,8 +22,9 @@ export const useLoginStyle = makeStyles((theme: Theme) => ({
     borderRadius: '50px !important',
     width: '75%',
   },
-  signupText: {
+  registerText: {
     color: 'blue',
     fontWeight: 'bold',
+    textDecoration: 'none',
   },
 }));

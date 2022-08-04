@@ -21,7 +21,7 @@ export interface AuthData {
 export function* handleSignInRequest({ payload }: PayloadAction<LoginPayload>) {
   try {
     yield put(setUserStatus('LOADING'));
-    const { data }: Response<AuthData> = yield call(authAPI.login, payload);
+    const { data }: Response<AuthData> = yield call(authAPI.login, payload );
     localStorage.setItem('token', data.token);
     yield put(setUserStatus('SIGN_IN'));
     yield put(setUserData(data.user));
@@ -31,6 +31,7 @@ export function* handleSignInRequest({ payload }: PayloadAction<LoginPayload>) {
     payload.navigate('/fail');
   }
 }
+
 
 export default function* authSaga() {
   yield takeLatest(signIn.type, handleSignInRequest);
