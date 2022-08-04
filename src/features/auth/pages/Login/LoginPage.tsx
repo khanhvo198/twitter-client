@@ -1,15 +1,12 @@
-import React, { FC, ReactElement } from "react";
-import LoginForm from "./components/LoginForm";
+import React, { FC, ReactElement } from 'react';
+import LoginForm from './components/LoginForm';
 
 const LoginPage: FC = (): ReactElement => {
-
-  return(
+  return (
     <React.Fragment>
-        <LoginForm />
+      <LoginForm />
     </React.Fragment>
-  )
-}
+  );
+};
 
-export default LoginPage
-
-
+export default LoginPage;
