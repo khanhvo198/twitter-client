@@ -1,14 +1,43 @@
+
 import { call, put, takeLatest } from "redux-saga/effects";
 import { authAPI } from "../../api/authApi";
+import { User } from "../../models/User";
 import { PayloadAction } from './../../../node_modules/@reduxjs/toolkit/src/createAction';
-import { LoginPayload, setUserStatus, signIn } from './authSlice';
+import { LoginPayload, setUserData, setUserStatus, signIn } from './authSlice';
+
+export interface Response<T>{
+  data: T,
+  message: string,
+  reason: string,
+  status: string,
+  statusCode : number,
+  timestamp: Array<number>
+}
+
+export interface AuthData {
+  user: User,
+  token: string
+}
 
 
-export function* handleSignInRequest(action: PayloadAction<LoginPayload>) {
-  console.log("Hello from saga")
-  yield put(setUserStatus('LOADING'))
-  const data: Promise<any> = yield call(authAPI.login, action.payload)
-  console.log(data)
+export function* handleSignInRequest({ payload }: PayloadAction<LoginPayload>) {
+  try {
+    yield put(setUserStatus('LOADING'))
+    const { data } : Response<AuthData> = yield call(authAPI.login, payload)  
+    localStorage.setItem('token', data.token)
+    yield put(setUserStatus("SIGN_IN"))
+    yield put(setUserData(data.user))
+    payload.navigate('/home')
+    
+  } catch (error) {
+    yield put(setUserStatus('ERROR'))
+    payload.navigate('/fail')
+  }
+
+  
+
+
+
 }
 
 

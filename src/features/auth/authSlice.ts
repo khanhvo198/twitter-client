@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { NavigateFunction } from 'react-router-dom';
 import { User } from '../../models/User';
 import { PayloadAction } from './../../../node_modules/@reduxjs/toolkit/src/createAction';
-
 export interface AuthState {
   status: string,
   user?: User,
@@ -15,7 +15,8 @@ const initialState: AuthState =  {
 
 export interface LoginPayload {
   email: string,
-  password: string
+  password: string,
+  navigate: NavigateFunction,
 }
 
 export const authSlice = createSlice({
@@ -23,10 +24,13 @@ export const authSlice = createSlice({
   initialState,
   reducers: {
     signIn(state: any , action: PayloadAction<LoginPayload>) {
-      console.log("Hello from slice")
+
     },
     setUserStatus(state: any, action: PayloadAction<string>) {
       state.status = action.payload
+    },
+    setUserData(state: any, action: PayloadAction<User>) {
+      state.user = action.payload
     },
     signOut(state: any) {
       
@@ -49,6 +53,6 @@ export const authSlice = createSlice({
 // )
 
 
-export const { signIn, signOut, setUserStatus } = authSlice.actions
+export const { signIn, signOut, setUserStatus, setUserData } = authSlice.actions
 
 export default authSlice.reducer

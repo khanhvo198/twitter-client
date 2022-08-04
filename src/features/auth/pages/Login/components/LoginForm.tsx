@@ -1,6 +1,7 @@
 import TwitterIcon from '@mui/icons-material/Twitter';
 import { Button, Grid, Stack, TextField } from "@mui/material";
 import { Form, Formik } from 'formik';
+import { useNavigate } from 'react-router-dom';
 
 import * as yup from "yup";
 import { useAppDispatch } from '../../../../../app/hooks';
@@ -22,7 +23,7 @@ const LoginForm = () => {
 
   const classes = useLoginStyle()
   const dispatch = useAppDispatch()
-
+  const navigate = useNavigate()
 
 
   const handleSubmit: any = ( values: any, { setSubmitting }: any ) => {
@@ -30,7 +31,8 @@ const LoginForm = () => {
       console.log(values)
       const user: LoginPayload = {
         email: values.email,
-        password: values.password
+        password: values.password,
+        navigate: navigate
       }
       dispatch(signIn(user))
       setSubmitting(false)  

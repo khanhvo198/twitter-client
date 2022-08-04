@@ -1,10 +1,9 @@
-import { ConnectedRouter } from 'connected-react-router';
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
-import { history } from './app/history';
 import { store } from "./app/store";
 import './index.css';
 import reportWebVitals from './reportWebVitals';
@@ -16,11 +15,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <ConnectedRouter history={history}>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </ConnectedRouter>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </Provider>
   </React.StrictMode>
 );

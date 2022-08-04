@@ -1,4 +1,4 @@
-import { Route, Switch } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import LoginPage from './features/auth/pages/Login/LoginPage';
 
@@ -10,17 +10,22 @@ const Home = () => {
   )
 }
 
+const LoginFail = () => {
+  return (
+    <>
+      Hello from login fail
+    </>
+  )
+}
+
 function App() {
   return (
     <>
-      <Switch>
-        <Route path='/login' >
-          <LoginPage />
-        </Route>
-        <Route path='/home'>
-          <Home />
-        </Route>
-      </Switch>
+      <Routes>
+        <Route path='/login' element={<LoginPage />} />
+        <Route path='/home' element={<Home />} />
+        <Route path='/fail' element={<LoginFail />} />
+      </Routes>
     </>
   );
 }
