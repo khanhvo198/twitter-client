@@ -15,7 +15,11 @@ export const SideBar = () => {
               <ListItemIcon>
                 <InboxIcon style={{ color: 'white' }} />
               </ListItemIcon>
-              <ListItemText primary="Home" style={{ color: 'white' }} />
+              <ListItemText
+                sx={{ display: { xs: 'none', sm: 'none', md: 'none', lg: 'none', xl: 'block' } }}
+                primary="Home"
+                style={{ color: 'white' }}
+              />
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
@@ -23,7 +27,11 @@ export const SideBar = () => {
               <ListItemIcon>
                 <DraftsIcon style={{ color: 'white' }} />
               </ListItemIcon>
-              <ListItemText primary="Explore" style={{ color: 'white' }} />
+              <ListItemText
+                sx={{ display: { xs: 'none', sm: 'none', md: 'none', lg: 'none', xl: 'block' } }}
+                primary="Explore"
+                style={{ color: 'white' }}
+              />
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
@@ -31,7 +39,11 @@ export const SideBar = () => {
               <ListItemIcon>
                 <DraftsIcon style={{ color: 'white' }} />
               </ListItemIcon>
-              <ListItemText primary="Explore" style={{ color: 'white' }} />
+              <ListItemText
+                sx={{ display: { xs: 'none', sm: 'none', md: 'none', lg: 'none', xl: 'block' } }}
+                primary="Explore"
+                style={{ color: 'white' }}
+              />
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
@@ -39,7 +51,11 @@ export const SideBar = () => {
               <ListItemIcon>
                 <DraftsIcon style={{ color: 'white' }} />
               </ListItemIcon>
-              <ListItemText primary="Explore" style={{ color: 'white' }} />
+              <ListItemText
+                sx={{ display: { xs: 'none', sm: 'none', md: 'none', lg: 'none', xl: 'block' } }}
+                primary="Explore"
+                style={{ color: 'white' }}
+              />
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
@@ -47,7 +63,11 @@ export const SideBar = () => {
               <ListItemIcon>
                 <DraftsIcon style={{ color: 'white' }} />
               </ListItemIcon>
-              <ListItemText primary="Explore" style={{ color: 'white' }} />
+              <ListItemText
+                sx={{ display: { xs: 'none', sm: 'none', md: 'none', lg: 'none', xl: 'block' } }}
+                primary="Explore"
+                style={{ color: 'white' }}
+              />
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
@@ -55,7 +75,11 @@ export const SideBar = () => {
               <ListItemIcon>
                 <DraftsIcon style={{ color: 'white' }} />
               </ListItemIcon>
-              <ListItemText primary="Explore" style={{ color: 'white' }} />
+              <ListItemText
+                sx={{ display: { xs: 'none', sm: 'none', md: 'none', lg: 'none', xl: 'block' } }}
+                primary="Explore"
+                style={{ color: 'white' }}
+              />
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
@@ -63,7 +87,11 @@ export const SideBar = () => {
               <ListItemIcon>
                 <DraftsIcon style={{ color: 'white' }} />
               </ListItemIcon>
-              <ListItemText primary="Explore" style={{ color: 'white' }} />
+              <ListItemText
+                sx={{ display: { xs: 'none', sm: 'none', md: 'none', lg: 'none', xl: 'block' } }}
+                primary="Explore"
+                style={{ color: 'white' }}
+              />
             </ListItemButton>
           </ListItem>
         </List>
