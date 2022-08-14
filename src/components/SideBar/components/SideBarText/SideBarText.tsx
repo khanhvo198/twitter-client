@@ -3,9 +3,10 @@ import { FC, ReactElement } from 'react';
 
 interface SideBarTextProps {
   text: string;
+  isActive: boolean;
 }
 
-export const SideBarText: FC<SideBarTextProps> = ({ text }): ReactElement => {
+export const SideBarText: FC<SideBarTextProps> = ({ text, isActive }): ReactElement => {
   return (
     <ListItemText
       sx={{
@@ -15,7 +16,7 @@ export const SideBarText: FC<SideBarTextProps> = ({ text }): ReactElement => {
       style={{ color: 'white' }}
       primaryTypographyProps={{
         fontSize: 20,
-        fontWeight: 'bold',
+        fontWeight: isActive ? 'bold' : '',
       }}
     />
   );

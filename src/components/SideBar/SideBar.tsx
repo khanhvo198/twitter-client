@@ -1,7 +1,7 @@
 import TwitterIcon from '@mui/icons-material/Twitter';
 import { Button, List, ListItem, ListItemIcon } from '@mui/material';
 import React from 'react';
-
+import { NavLink } from 'react-router-dom';
 import { ExploreIcon } from './components/ExploreIcon/ExploreIcon';
 import { HomeIcon } from './components/HomeIcon/HomeIcon';
 import { MessageIcon } from './components/MessageIcon/MessageIcon';
@@ -9,11 +9,14 @@ import { MoreIcon } from './components/MoreIcon/MoreIcon';
 import { NotificationIcon } from './components/NotificationIcon/NotificationIcon';
 import { ProfileIcon } from './components/ProfileIcon/ProfileIcon';
 import { SideBarText } from './components/SideBarText/SideBarText';
-import { useSideBarStyle } from './style';
 
 export const SideBar = () => {
-  const classes = useSideBarStyle();
-
+  let activeStyle = {
+    textDecoration: 'underline',
+  };
+  let inActiveStyle = {
+    textDecoration: 'strike-through',
+  };
   return (
     <React.Fragment>
       <List style={{ backgroundColor: '#000', height: '100vh' }}>
@@ -33,42 +36,67 @@ export const SideBar = () => {
             <TwitterIcon style={{ color: 'white', fontSize: '2.1rem' }} />
           </ListItemIcon>
         </ListItem>
-        <ListItem style={{ padding: '1rem 0 1rem 0', justifyContent: 'center' }}>
-          <ListItemIcon style={{ justifyContent: 'center' }}>
-            <HomeIcon />
-          </ListItemIcon>
-          <SideBarText text="Home" />
-        </ListItem>
-        <ListItem style={{ padding: '1rem 0 1rem 0', justifyContent: 'center' }}>
-          <ListItemIcon style={{ justifyContent: 'center' }}>
-            <ExploreIcon />
-          </ListItemIcon>
-          <SideBarText text="Explore" />
-        </ListItem>
-        <ListItem style={{ padding: '1rem 0 1rem 0', justifyContent: 'center' }}>
-          <ListItemIcon style={{ justifyContent: 'center' }}>
-            <NotificationIcon />
-          </ListItemIcon>
-          <SideBarText text="Notifications" />
-        </ListItem>
-        <ListItem style={{ padding: '1rem 0 1rem 0', justifyContent: 'center' }}>
-          <ListItemIcon style={{ justifyContent: 'center' }}>
-            <MessageIcon />
-          </ListItemIcon>
-          <SideBarText text="Messages" />
-        </ListItem>
-        <ListItem style={{ padding: '1rem 0 1rem 0', justifyContent: 'center' }}>
-          <ListItemIcon style={{ justifyContent: 'center' }}>
-            <ProfileIcon />
-          </ListItemIcon>
-          <SideBarText text="Profile" />
-        </ListItem>
-        <ListItem style={{ padding: '1rem 0 1rem 0', justifyContent: 'center' }}>
-          <ListItemIcon style={{ justifyContent: 'center' }}>
-            <MoreIcon />
-          </ListItemIcon>
-          <SideBarText text="More" />
-        </ListItem>
+        <NavLink to="/home" style={{ textDecoration: 'none' }}>
+          {({ isActive }) => (
+            <ListItem style={{ padding: '1rem 0 1rem 0', justifyContent: 'center' }}>
+              <ListItemIcon style={{ justifyContent: 'center' }}>
+                <HomeIcon isActive={isActive} />
+              </ListItemIcon>
+              <SideBarText text="Home" isActive={isActive} />
+            </ListItem>
+          )}
+        </NavLink>
+        <NavLink to="/explore" style={{ textDecoration: 'none' }}>
+          {({ isActive }) => (
+            <ListItem style={{ padding: '1rem 0 1rem 0', justifyContent: 'center' }}>
+              <ListItemIcon style={{ justifyContent: 'center' }}>
+                <ExploreIcon isActive={isActive} />
+              </ListItemIcon>
+              <SideBarText text="Explore" isActive={isActive} />
+            </ListItem>
+          )}
+        </NavLink>
+        <NavLink to="/notifications" style={{ textDecoration: 'none' }}>
+          {({ isActive }) => (
+            <ListItem style={{ padding: '1rem 0 1rem 0', justifyContent: 'center' }}>
+              <ListItemIcon style={{ justifyContent: 'center' }}>
+                <NotificationIcon isActive={isActive} />
+              </ListItemIcon>
+              <SideBarText text="Notifications" isActive={isActive} />
+            </ListItem>
+          )}
+        </NavLink>
+        <NavLink to="/messages" style={{ textDecoration: 'none' }}>
+          {({ isActive }) => (
+            <ListItem style={{ padding: '1rem 0 1rem 0', justifyContent: 'center' }}>
+              <ListItemIcon style={{ justifyContent: 'center' }}>
+                <MessageIcon isActive={isActive} />
+              </ListItemIcon>
+              <SideBarText text="Messages" isActive={isActive} />
+            </ListItem>
+          )}
+        </NavLink>
+        <NavLink to="/profile" style={{ textDecoration: 'none' }}>
+          {({ isActive }) => (
+            <ListItem style={{ padding: '1rem 0 1rem 0', justifyContent: 'center' }}>
+              <ListItemIcon style={{ justifyContent: 'center' }}>
+                <ProfileIcon isActive={isActive} />
+              </ListItemIcon>
+              <SideBarText text="Profile" isActive={isActive} />
+            </ListItem>
+          )}
+        </NavLink>
+        <NavLink to="/more" style={{ textDecoration: 'none' }}>
+          {({ isActive }) => (
+            <ListItem style={{ padding: '1rem 0 1rem 0', justifyContent: 'center' }}>
+              <ListItemIcon style={{ justifyContent: 'center' }}>
+                <MoreIcon />
+              </ListItemIcon>
+              <SideBarText text="More" isActive={isActive} />
+            </ListItem>
+          )}
+        </NavLink>
+
         <ListItem style={{ padding: '1rem 0 1rem 0', justifyContent: 'center' }}>
           <ListItemIcon style={{ width: '90%', justifyContent: 'center' }}>
             <Button
