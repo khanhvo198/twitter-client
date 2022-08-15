@@ -9,4 +9,39 @@ export const useSideBarStyle = makeStyles((theme: Theme) => ({
   itemIcon: {
     justifyContent: 'center',
   },
+  twitterIcon: {
+    '& div': {
+      padding: 0,
+      width: '48px',
+      height: '48px',
+      minWidth: 0,
+      minHeight: 0,
+      '&:hover': {
+        backgroundColor: 'rgb(24,24,24)',
+        borderRadius: 30,
+        [theme.breakpoints.down('md')]: {
+          borderRadius: '50%',
+        },
+      },
+    },
+  },
+  itemWrapper: {
+    '& div': {
+      padding: '0.2rem 0.5rem 0.2rem 0',
+      [theme.breakpoints.down('lg')]: {
+        padding: 0,
+        width: '48px',
+        height: '48px',
+        minWidth: 0,
+        minHeight: 0,
+      },
+      '&:hover': {
+        backgroundColor: 'rgb(24,24,24)',
+        borderRadius: 30,
+        [theme.breakpoints.down('md')]: {
+          borderRadius: '50%',
+        },
+      },
+    },
+  },
 }));

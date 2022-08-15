@@ -9,6 +9,7 @@ import { MoreIcon } from './components/MoreIcon/MoreIcon';
 import { NotificationIcon } from './components/NotificationIcon/NotificationIcon';
 import { ProfileIcon } from './components/ProfileIcon/ProfileIcon';
 import { SideBarText } from './components/SideBarText/SideBarText';
+import { useSideBarStyle } from './style';
 
 export const SideBar = () => {
   let activeStyle = {
@@ -17,11 +18,14 @@ export const SideBar = () => {
   let inActiveStyle = {
     textDecoration: 'strike-through',
   };
+
+  const classes = useSideBarStyle();
+
   return (
     <React.Fragment>
       <List style={{ backgroundColor: '#000', height: '100vh' }}>
         <ListItem
-          style={{ padding: '0.3rem 0 0.5rem 0' }}
+          style={{ padding: '0.5rem 0 0.5rem 0', cursor: 'pointer' }}
           sx={{
             justifyContent: {
               xs: 'center',
@@ -31,68 +35,155 @@ export const SideBar = () => {
               xl: 'flex-start',
             },
           }}
+          className={classes.twitterIcon}
         >
-          <ListItemIcon style={{ justifyContent: 'center' }}>
-            <TwitterIcon style={{ color: 'white', fontSize: '2.1rem' }} />
-          </ListItemIcon>
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <ListItemIcon style={{ justifyContent: 'center', alignItems: 'center' }}>
+              <TwitterIcon style={{ color: 'white', fontSize: '2.1rem' }} />
+            </ListItemIcon>
+          </div>
         </ListItem>
         <NavLink to="/home" style={{ textDecoration: 'none' }}>
           {({ isActive }) => (
-            <ListItem style={{ padding: '1rem 0 1rem 0', justifyContent: 'center' }}>
-              <ListItemIcon style={{ justifyContent: 'center' }}>
-                <HomeIcon isActive={isActive} />
-              </ListItemIcon>
-              <SideBarText text="Home" isActive={isActive} />
+            <ListItem
+              style={{ padding: '0.5rem 0 0.5rem 0' }}
+              sx={{
+                justifyContent: {
+                  xs: 'center',
+                  sm: 'center',
+                  md: 'center',
+                  lg: 'flex-start',
+                  xl: 'flex-start',
+                },
+              }}
+              className={classes.itemWrapper}
+            >
+              <div style={{ display: 'flex', justifyContent: 'center' }}>
+                <ListItemIcon style={{ justifyContent: 'center' }}>
+                  <HomeIcon isActive={isActive} />
+                </ListItemIcon>
+                <SideBarText text="Home" isActive={isActive} />
+              </div>
             </ListItem>
           )}
         </NavLink>
         <NavLink to="/explore" style={{ textDecoration: 'none' }}>
           {({ isActive }) => (
-            <ListItem style={{ padding: '1rem 0 1rem 0', justifyContent: 'center' }}>
-              <ListItemIcon style={{ justifyContent: 'center' }}>
-                <ExploreIcon isActive={isActive} />
-              </ListItemIcon>
-              <SideBarText text="Explore" isActive={isActive} />
+            <ListItem
+              style={{ padding: '0.5rem 0 0.5rem 0', cursor: 'pointer' }}
+              sx={{
+                justifyContent: {
+                  xs: 'center',
+                  sm: 'center',
+                  md: 'center',
+                  lg: 'flex-start',
+                  xl: 'flex-start',
+                },
+              }}
+              className={classes.itemWrapper}
+            >
+              <div style={{ display: 'flex', justifyContent: 'center' }}>
+                <ListItemIcon style={{ justifyContent: 'center' }}>
+                  <ExploreIcon isActive={isActive} />
+                </ListItemIcon>
+                <SideBarText text="Explore" isActive={isActive} />
+              </div>
             </ListItem>
           )}
         </NavLink>
         <NavLink to="/notifications" style={{ textDecoration: 'none' }}>
           {({ isActive }) => (
-            <ListItem style={{ padding: '1rem 0 1rem 0', justifyContent: 'center' }}>
-              <ListItemIcon style={{ justifyContent: 'center' }}>
-                <NotificationIcon isActive={isActive} />
-              </ListItemIcon>
-              <SideBarText text="Notifications" isActive={isActive} />
+            <ListItem
+              style={{ padding: '0.5rem 0 0.5rem 0' }}
+              sx={{
+                justifyContent: {
+                  xs: 'center',
+                  sm: 'center',
+                  md: 'center',
+                  lg: 'flex-start',
+                  xl: 'flex-start',
+                },
+              }}
+              className={classes.itemWrapper}
+            >
+              <div style={{ display: 'flex', justifyContent: 'center' }}>
+                <ListItemIcon style={{ justifyContent: 'center' }}>
+                  <NotificationIcon isActive={isActive} />
+                </ListItemIcon>
+                <SideBarText text="Notifications" isActive={isActive} />
+              </div>
             </ListItem>
           )}
         </NavLink>
         <NavLink to="/messages" style={{ textDecoration: 'none' }}>
           {({ isActive }) => (
-            <ListItem style={{ padding: '1rem 0 1rem 0', justifyContent: 'center' }}>
-              <ListItemIcon style={{ justifyContent: 'center' }}>
-                <MessageIcon isActive={isActive} />
-              </ListItemIcon>
-              <SideBarText text="Messages" isActive={isActive} />
+            <ListItem
+              style={{ padding: '0.5rem 0 0.5rem 0' }}
+              sx={{
+                justifyContent: {
+                  xs: 'center',
+                  sm: 'center',
+                  md: 'center',
+                  lg: 'flex-start',
+                  xl: 'flex-start',
+                },
+              }}
+              className={classes.itemWrapper}
+            >
+              <div style={{ display: 'flex', justifyContent: 'center' }}>
+                <ListItemIcon style={{ justifyContent: 'center' }}>
+                  <MessageIcon isActive={isActive} />
+                </ListItemIcon>
+                <SideBarText text="Messages" isActive={isActive} />
+              </div>
             </ListItem>
           )}
         </NavLink>
         <NavLink to="/profile" style={{ textDecoration: 'none' }}>
           {({ isActive }) => (
-            <ListItem style={{ padding: '1rem 0 1rem 0', justifyContent: 'center' }}>
-              <ListItemIcon style={{ justifyContent: 'center' }}>
-                <ProfileIcon isActive={isActive} />
-              </ListItemIcon>
-              <SideBarText text="Profile" isActive={isActive} />
+            <ListItem
+              style={{ padding: '0.5rem 0 0.5rem 0' }}
+              sx={{
+                justifyContent: {
+                  xs: 'center',
+                  sm: 'center',
+                  md: 'center',
+                  lg: 'flex-start',
+                  xl: 'flex-start',
+                },
+              }}
+              className={classes.itemWrapper}
+            >
+              <div style={{ display: 'flex', justifyContent: 'center' }}>
+                <ListItemIcon style={{ justifyContent: 'center' }}>
+                  <ProfileIcon isActive={isActive} />
+                </ListItemIcon>
+                <SideBarText text="Profile" isActive={isActive} />
+              </div>
             </ListItem>
           )}
         </NavLink>
         <NavLink to="/more" style={{ textDecoration: 'none' }}>
           {({ isActive }) => (
-            <ListItem style={{ padding: '1rem 0 1rem 0', justifyContent: 'center' }}>
-              <ListItemIcon style={{ justifyContent: 'center' }}>
-                <MoreIcon />
-              </ListItemIcon>
-              <SideBarText text="More" isActive={isActive} />
+            <ListItem
+              style={{ padding: '0.5rem 0 0.5rem 0' }}
+              sx={{
+                justifyContent: {
+                  xs: 'center',
+                  sm: 'center',
+                  md: 'center',
+                  lg: 'flex-start',
+                  xl: 'flex-start',
+                },
+              }}
+              className={classes.itemWrapper}
+            >
+              <div style={{ display: 'flex', justifyContent: 'center' }}>
+                <ListItemIcon style={{ justifyContent: 'center' }}>
+                  <MoreIcon />
+                </ListItemIcon>
+                <SideBarText text="More" isActive={isActive} />
+              </div>
             </ListItem>
           )}
         </NavLink>

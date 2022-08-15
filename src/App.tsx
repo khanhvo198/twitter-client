@@ -1,3 +1,4 @@
+import { createTheme, ThemeProvider } from '@mui/material';
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
@@ -17,34 +18,34 @@ const LoginFail = () => {
 };
 
 function App() {
+  const theme = createTheme({
+    palette: {},
+  });
   return (
     <React.Fragment>
-      <Routes>
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/fail" element={<LoginFail />} />
-        <Route path="/register" element={<RegisterPage />} />
+      <ThemeProvider theme={theme}>
+        <Routes>
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/fail" element={<LoginFail />} />
+          <Route path="/register" element={<RegisterPage />} />
 
-        <Route path="/" element={<Layout />}>
           <Route element={<PrivateRoute />}>
-            <Route path="home" element={<Home />} />
+            <Route path="/" element={<Layout />}>
+              <Route path="home" element={<Home />} />
+
+              <Route path="explore" element={<Explore />} />
+
+              <Route path="notifications" element={<Notifications />} />
+
+              <Route path="messages" element={<Messages />} />
+
+              <Route path="profile" element={<Profile />} />
+
+              <Route path="more" element={<More />} />
+            </Route>
           </Route>
-          <Route element={<PrivateRoute />}>
-            <Route path="explore" element={<Explore />} />
-          </Route>
-          <Route element={<PrivateRoute />}>
-            <Route path="notifications" element={<Notifications />} />
-          </Route>
-          <Route element={<PrivateRoute />}>
-            <Route path="messages" element={<Messages />} />
-          </Route>
-          <Route element={<PrivateRoute />}>
-            <Route path="profile" element={<Profile />} />
-          </Route>
-          <Route element={<PrivateRoute />}>
-            <Route path="more" element={<More />} />
-          </Route>
-        </Route>
-      </Routes>
+        </Routes>
+      </ThemeProvider>
     </React.Fragment>
   );
 }

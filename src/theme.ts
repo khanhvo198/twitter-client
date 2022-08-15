@@ -1,10 +1,5 @@
-import { createTheme } from "@mui/system";
+import { createTheme } from '@mui/material';
 
-export const lightTheme = createTheme({
-  palette: {
-    primary: {
-      light: "white",
-      dark: "black"
-    }
-  }
-})
+export const theme = createTheme({
+  palette: {},
+});
