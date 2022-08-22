@@ -35,7 +35,7 @@ export const Layout: FC = (): ReactElement => {
           xl={3.5}
           sx={{ display: { xs: 'none', sm: 'none', md: 'block', lg: 'block', xl: 'block' } }}
         >
-          <div style={{ backgroundColor: 'blue', height: '100vh' }}>RightSide</div>
+          <div style={{ backgroundColor: '#000', height: '100vh' }}>RightSide</div>
         </Grid>
       </Grid>
     </Grid>

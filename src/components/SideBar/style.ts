@@ -30,8 +30,8 @@ export const useSideBarStyle = makeStyles((theme: Theme) => ({
       padding: '0.2rem 0.5rem 0.2rem 0',
       [theme.breakpoints.down('lg')]: {
         padding: 0,
-        width: '48px',
-        height: '48px',
+        width: '50px',
+        height: '50px',
         minWidth: 0,
         minHeight: 0,
       },

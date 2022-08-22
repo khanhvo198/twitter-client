@@ -1,4 +1,5 @@
 import React, { FC, ReactElement } from 'react';
+import { TweetBox } from '../TweetBox/TweetBox';
 import { useHomeStyle } from './style';
 
 export const Home: FC = (): ReactElement => {
@@ -6,7 +7,9 @@ export const Home: FC = (): ReactElement => {
 
   return (
     <React.Fragment>
-      <div style={{ backgroundColor: 'purple', height: '100vh' }}>Home</div>
+      <div className={classes.container}>
+        <TweetBox />
+      </div>
     </React.Fragment>
   );
 };
