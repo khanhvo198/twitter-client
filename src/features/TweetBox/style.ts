@@ -5,13 +5,15 @@ export const useTweetBoxStyle = makeStyles((theme: Theme) => ({
   tweetBoxContainer: {
     backgroundColor: '#000',
     color: 'rgb(239, 243, 244)',
+    borderLeft: '1px solid rgb(47,51,54)',
+    borderRight: '1px solid rgb(47,51,54)',
   },
   tweetBoxTitleContainer: {
     minHeight: '53px',
     padding: '0 1rem 0 1rem',
     display: 'flex',
     width: '100%',
-    borderBottom: '1px solid rgb(47,51,54)',
+    opacity: 0.8,
     position: 'sticky',
     top: 0,
   },
