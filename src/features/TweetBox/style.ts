@@ -5,13 +5,15 @@ export const useTweetBoxStyle = makeStyles((theme: Theme) => ({
   tweetBoxContainer: {
     backgroundColor: '#000',
     color: 'rgb(239, 243, 244)',
-    borderBottom: '1px solid rgb(47,51,54)',
   },
   tweetBoxTitleContainer: {
     minHeight: '53px',
     padding: '0 1rem 0 1rem',
     display: 'flex',
     width: '100%',
+    borderBottom: '1px solid rgb(47,51,54)',
+    position: 'sticky',
+    top: 0,
   },
   tweetBoxFirstElementContainer: {
     width: '90%',
@@ -41,5 +43,9 @@ export const useTweetBoxStyle = makeStyles((theme: Theme) => ({
       borderRadius: '50%',
       backgroundColor: 'rgb(24,24,24)',
     },
+  },
+  tweetBoxWrapper: {
+    height: '157px',
+    borderBottom: '1px solid rgb(47,51,54)',
   },
 }));

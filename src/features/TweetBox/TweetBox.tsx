@@ -17,6 +17,34 @@ export const TweetBox: FC = (): ReactElement => {
           </div>
         </div>
       </div>
+      <div className={classes.tweetBoxWrapper}></div>
+      <div className={classes.tweetBoxWrapper}></div>
+
+      <div className={classes.tweetBoxWrapper}></div>
+
+      <div className={classes.tweetBoxWrapper}></div>
+
+      <div className={classes.tweetBoxWrapper}></div>
+
+      <div className={classes.tweetBoxWrapper}></div>
+
+      <div className={classes.tweetBoxWrapper}></div>
+
+      <div className={classes.tweetBoxWrapper}></div>
+
+      <div className={classes.tweetBoxWrapper}></div>
+
+      <div className={classes.tweetBoxWrapper}></div>
+
+      <div className={classes.tweetBoxWrapper}></div>
+
+      <div className={classes.tweetBoxWrapper}></div>
+
+      <div className={classes.tweetBoxWrapper}></div>
+
+      <div className={classes.tweetBoxWrapper}></div>
+
+      <div className={classes.tweetBoxWrapper}></div>
     </div>
   );
 };

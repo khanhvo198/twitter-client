@@ -1,14 +1,38 @@
 import { Grid } from '@mui/material';
-import { FC, ReactElement } from 'react';
+import { FC, ReactElement, useEffect, useRef, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import { SideBar } from '../SideBar/SideBar';
 import { useLayoutStyle } from './style';
 
 export const Layout: FC = (): ReactElement => {
   const classes = useLayoutStyle();
+  const [width, setWidth] = useState<number | undefined>();
+  const elementRef = useRef<HTMLInputElement>(null);
 
+  useEffect(() => {
+    let parentWidth = elementRef?.current?.getBoundingClientRect().width;
+    setWidth(parentWidth);
+  }, []);
+
+  useEffect(() => {
+    function handleResize() {
+      let parentWidth = elementRef?.current?.getBoundingClientRect().width;
+      setWidth(parentWidth);
+    }
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  });
   return (
-    <Grid container className={classes.container} justifyContent="center">
+    <Grid
+      container
+      className={classes.container}
+      justifyContent="center"
+      style={{ overflowY: 'scroll' }}
+    >
       <Grid
         item
         container
@@ -20,8 +44,8 @@ export const Layout: FC = (): ReactElement => {
         lg={11}
         xl={9}
       >
-        <Grid item xs={1.75} sm={2} md={1} lg={2} xl={2.5}>
-          <SideBar />
+        <Grid item xs={1.75} sm={2} md={1} lg={2} xl={2.5} ref={elementRef}>
+          <SideBar parentWidth={width} />
         </Grid>
         <Grid item xs={10.25} sm={8.5} md={7} lg={6} xl={6}>
           <Outlet />
