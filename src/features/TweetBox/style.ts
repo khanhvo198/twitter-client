@@ -49,5 +49,70 @@ export const useTweetBoxStyle = makeStyles((theme: Theme) => ({
   tweetBoxWrapper: {
     height: '157px',
     borderBottom: '1px solid rgb(47,51,54)',
+    padding: '0 1rem 0 1rem',
+    display: 'flex',
+    width: '100%',
+  },
+  leftContainer: {
+    width: '48px',
+    padding: '4px 0 4px 0',
+    marginRight: '12px',
+  },
+  avatarContainer: {
+    paddingTop: '4px',
+  },
+  rightContainer: {
+    width: 'calc(100% - 60px)',
+    paddingRight: '1rem',
+  },
+  editorContainer: {
+    height: '65%',
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  editorWrapper: {
+    height: '70%',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    cursor: 'text',
+    '& div': {
+      outline: 'none',
+      width: '100%',
+      fontSize: '20px',
+      '&[contentEditable="false"]': {
+        '&:empty': {
+          '&::before': {
+            content: 'attr(placeholder)',
+          },
+        },
+      },
+
+      '&[contentEditable="true"]': {
+        '&:empty': {
+          '&:before': {
+            content: 'attr(placeholder)',
+            color: 'darkgray',
+          },
+        },
+      },
+    },
+  },
+  borderLineBottomEditor: {
+    borderBottom: '1px solid rgb(47,51,54)',
+    height: '30%',
+    marginLeft: '-8px',
+  },
+  toolbarContainer: {
+    height: '35%',
+    padding: '0.5rem 0 0.5rem 0',
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  toolBarListIcon: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    width: '40%',
   },
 }));

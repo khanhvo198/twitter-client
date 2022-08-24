@@ -16,13 +16,6 @@ export interface SideBarProps {
 }
 
 export const SideBar: FC<SideBarProps> = ({ parentWidth }) => {
-  let activeStyle = {
-    textDecoration: 'underline',
-  };
-  let inActiveStyle = {
-    textDecoration: 'strike-through',
-  };
-
   const classes = useSideBarStyle();
 
   return (
