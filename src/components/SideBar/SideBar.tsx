@@ -198,8 +198,30 @@ export const SideBar: FC<SideBarProps> = ({ parentWidth }) => {
         )}
       </NavLink>
 
-      <ListItem style={{ padding: '1rem 0 1rem 0', justifyContent: 'center' }}>
-        <ListItemIcon style={{ width: '90%', justifyContent: 'center' }}>
+      <ListItem
+        style={{ padding: '1rem 0 1rem 0' }}
+        sx={{
+          justifyContent: {
+            xs: 'center',
+            sm: 'center',
+            md: 'center',
+            lg: 'flex-start',
+            xl: 'flex-start',
+          },
+        }}
+      >
+        <ListItemIcon
+          style={{ width: '90%' }}
+          sx={{
+            justifyContent: {
+              xs: 'center',
+              sm: 'center',
+              md: 'center',
+              lg: 'flex-start',
+              xl: 'flex-start',
+            },
+          }}
+        >
           <Button
             variant="contained"
             color="primary"
