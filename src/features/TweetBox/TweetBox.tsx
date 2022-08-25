@@ -1,4 +1,4 @@
-import { Avatar, Button } from '@mui/material';
+import { Avatar, Button, List, ListItem, ListItemIcon } from '@mui/material';
 import { FC, ReactElement } from 'react';
 import { EmojiIcon } from './components/EmojiIcon/EmojiIcon';
 import { GifIcon } from './components/GifIcon/GifIcon';
@@ -7,6 +7,7 @@ import { MediaIcon } from './components/MediaIcon/MediaIcon';
 import { PollIcon } from './components/PollIcon/PollIcon';
 import { ScheduleIcon } from './components/ScheduleIcon/ScheduleIcon';
 import { TopTweetIcon } from './components/TopTweetIcon/TopTweetIcon';
+import { WorldIcon } from './components/WorldIcon/WorldIcon';
 import { useTweetBoxStyle } from './style';
 
 export const TweetBox: FC = (): ReactElement => {
@@ -41,17 +42,57 @@ export const TweetBox: FC = (): ReactElement => {
                 placeholder="What's happening?"
               ></div>
             </div>
+            <div className={classes.tweetSetting}>
+              <div>
+                <WorldIcon />
+              </div>
+              <div>Everyone can reply</div>
+            </div>
             <div className={classes.borderLineBottomEditor}></div>
           </div>
           <div className={classes.toolbarContainer}>
-            <div className={classes.toolBarListIcon}>
-              <MediaIcon />
-              <GifIcon />
-              <PollIcon />
-              <EmojiIcon />
-              <ScheduleIcon />
-              <LocationIcon />
-            </div>
+            <List className={classes.toolBarListIcon}>
+              <ListItem sx={{ padding: 0 }}>
+                <ListItemIcon sx={{ minWidth: 0 }}>
+                  <MediaIcon />
+                </ListItemIcon>
+              </ListItem>
+              <ListItem sx={{ padding: 0 }}>
+                <ListItemIcon sx={{ minWidth: 0 }}>
+                  <GifIcon />
+                </ListItemIcon>
+              </ListItem>
+              <ListItem
+                sx={{
+                  padding: 0,
+                  display: { xs: 'none', sm: 'none', md: 'none', xl: 'flex', lg: 'flex' },
+                }}
+              >
+                <ListItemIcon sx={{ minWidth: 0 }}>
+                  <PollIcon />
+                </ListItemIcon>
+              </ListItem>
+              <ListItem sx={{ padding: 0 }}>
+                <ListItemIcon sx={{ minWidth: 0 }}>
+                  <EmojiIcon />
+                </ListItemIcon>
+              </ListItem>
+              <ListItem
+                sx={{
+                  padding: 0,
+                  display: { xs: 'none', sm: 'none', md: 'none', xl: 'flex', lg: 'flex' },
+                }}
+              >
+                <ListItemIcon sx={{ minWidth: 0 }}>
+                  <ScheduleIcon />
+                </ListItemIcon>
+              </ListItem>
+              <ListItem sx={{ padding: 0 }}>
+                <ListItemIcon sx={{ minWidth: 0 }}>
+                  <LocationIcon />
+                </ListItemIcon>
+              </ListItem>
+            </List>
             <Button
               variant="contained"
               color="primary"

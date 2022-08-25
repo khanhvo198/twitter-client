@@ -71,7 +71,7 @@ export const useTweetBoxStyle = makeStyles((theme: Theme) => ({
     flexDirection: 'column',
   },
   editorWrapper: {
-    height: '70%',
+    height: '65%',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
@@ -98,9 +98,20 @@ export const useTweetBoxStyle = makeStyles((theme: Theme) => ({
       },
     },
   },
+  tweetSetting: {
+    display: 'flex',
+    height: '20%',
+    '& div': {
+      color: 'rgb(29, 155, 240)',
+      fontSize: '14px',
+      fontWeight: 700,
+      display: 'flex',
+      alignItems: 'center',
+    },
+  },
   borderLineBottomEditor: {
     borderBottom: '1px solid rgb(47,51,54)',
-    height: '30%',
+    height: '15%',
     marginLeft: '-8px',
   },
   toolbarContainer: {
