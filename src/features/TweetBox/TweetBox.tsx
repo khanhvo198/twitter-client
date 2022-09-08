@@ -6,7 +6,6 @@ import { LocationIcon } from './components/LocationIcon/LocationIcon';
 import { MediaIcon } from './components/MediaIcon/MediaIcon';
 import { PollIcon } from './components/PollIcon/PollIcon';
 import { ScheduleIcon } from './components/ScheduleIcon/ScheduleIcon';
-import { TopTweetIcon } from './components/TopTweetIcon/TopTweetIcon';
 import { WorldIcon } from './components/WorldIcon/WorldIcon';
 import { useTweetBoxStyle } from './style';
 
@@ -15,16 +14,6 @@ export const TweetBox: FC = (): ReactElement => {
 
   return (
     <div className={classes.tweetBoxContainer}>
-      <div className={classes.tweetBoxTitleContainer}>
-        <div className={classes.tweetBoxFirstElementContainer}>
-          <h5>Home</h5>
-        </div>
-        <div className={classes.tweetBoxSecondElementContainer}>
-          <div>
-            <TopTweetIcon />
-          </div>
-        </div>
-      </div>
       <div className={classes.tweetBoxWrapper}>
         <div className={classes.leftContainer}>
           <div className={classes.avatarContainer}>
