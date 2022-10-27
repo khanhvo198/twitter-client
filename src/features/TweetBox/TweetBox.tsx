@@ -1,5 +1,6 @@
 import { Avatar, Button, List, ListItem, ListItemIcon } from '@mui/material';
-import { FC, ReactElement } from 'react';
+import { FC, ReactElement, useState } from 'react';
+import axiosClient from '../../api/axiosClient';
 import { EmojiIcon } from './components/EmojiIcon/EmojiIcon';
 import { GifIcon } from './components/GifIcon/GifIcon';
 import { LocationIcon } from './components/LocationIcon/LocationIcon';
@@ -11,6 +12,15 @@ import { useTweetBoxStyle } from './style';
 
 export const TweetBox: FC = (): ReactElement => {
   const classes = useTweetBoxStyle();
+
+  const [tweet, setTweet] = useState<String | null>('');
+
+  const createTweet = async (tweetText: String | null): Promise<void> => {
+    const tweet = { text: tweetText };
+    const response = await axiosClient.post('/tweets', tweet);
+
+    console.log('Tweet is: ', response);
+  };
 
   return (
     <div className={classes.tweetBoxContainer}>
@@ -29,6 +39,7 @@ export const TweetBox: FC = (): ReactElement => {
                 aria-multiline="true"
                 aria-placeholder="What's happening?"
                 placeholder="What's happening?"
+                onInput={(e) => setTweet(e.currentTarget.textContent)}
               ></div>
             </div>
             <div className={classes.tweetSetting}>
@@ -87,6 +98,7 @@ export const TweetBox: FC = (): ReactElement => {
               color="primary"
               type="submit"
               style={{ borderRadius: '50px', textTransform: 'none' }}
+              onClick={() => createTweet(tweet)}
             >
               Tweet
             </Button>

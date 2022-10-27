@@ -2,7 +2,11 @@ import { Avatar } from '@mui/material';
 import { FC, ReactElement } from 'react';
 import { useTweetStyle } from './style';
 
-export const Tweet: FC = (): ReactElement => {
+export interface TweetProps {
+  text: String;
+}
+
+export const Tweet: FC<TweetProps> = (text): ReactElement => {
   const classes = useTweetStyle();
   return (
     <div className={classes.tweetContainer}>
@@ -24,7 +28,7 @@ export const Tweet: FC = (): ReactElement => {
             </div>
             <div className={classes.actionContainer}>...</div>
           </div>
-          <div className={classes.content}>This is my first tweet</div>
+          <div className={classes.content}>{text.text}</div>
         </div>
       </div>
     </div>
