@@ -7,7 +7,7 @@ export const useTweetStyle = makeStyles((theme: Theme) => ({
     color: '#fff',
     fontSize: '15px',
   },
-  tweetWrapper: {
+  tweetWrapperContent: {
     padding: '0.75rem 1rem 0.75rem 1rem',
     display: 'flex',
   },
@@ -50,4 +50,23 @@ export const useTweetStyle = makeStyles((theme: Theme) => ({
   content: {
     fontSize: '15px',
   },
+  tweetWrapperActions: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    maxWidth: '425px',
+    marginTop: '0.8rem',
+    color: 'rgb(113, 118, 123)',
+    fontSize: '15px',
+    '& div span': {
+      fontSize: '13px',
+      minWidth: 'calc(1em + 24px)',
+      paddingLeft: '12px',
+      paddingRight: '12px',
+    },
+  },
+  replyIcon: {},
+  retweetIcon: {},
+  likeIcon: {},
+  shareIcon: {},
 }));
