@@ -35,19 +35,27 @@ export const Tweet: FC<TweetProps> = (text): ReactElement => {
           <div className={classes.content}>{text.text}</div>
           <div className={classes.tweetWrapperActions}>
             <div className={classes.replyIcon}>
-              <ReplyIcon />
+              <div>
+                <ReplyIcon />
+              </div>
               <span>1231.1K</span>
             </div>
             <div className={classes.retweetIcon}>
-              <RetweetIcon />
+              <div>
+                <RetweetIcon />
+              </div>
               <span>123.1K</span>
             </div>
             <div className={classes.likeIcon}>
-              <LikeIcon />
+              <div>
+                <LikeIcon />
+              </div>
               <span>123.1K</span>
             </div>
             <div className={classes.shareIcon}>
-              <ShareIcon />
+              <div>
+                <ShareIcon />
+              </div>
             </div>
           </div>
         </div>

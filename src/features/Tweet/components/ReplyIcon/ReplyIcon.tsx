@@ -4,7 +4,6 @@ export const ReplyIcon = () => {
       viewBox="0 0 24 24"
       aria-hidden="true"
       style={{
-        color: 'rgb(113, 118, 123)',
         fill: 'currentColor',
         width: '1.25em',
         height: '1.25em',
